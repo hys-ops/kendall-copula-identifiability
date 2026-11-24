@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An anonymous mathematical manuscript on identifying an Archimedean copula from its population Kendall distribution, with a Lean reproduction supplement.">
+<meta name="referrer" content="no-referrer">
+<title>Kendall distributions identify Archimedean copulas</title>
+<style>
+:root{color-scheme:light;--ink:#122829;--soft:#425759;--paper:#fbfaf6;--rule:#bacbc5;--signal:#07554b;--pale:#e7f1eb;--night:#123b35;--white:#fff;--rose:#f2e9db;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 var(--sans)}a{color:var(--signal);text-decoration-thickness:.09em;text-underline-offset:.15em}a:hover{text-decoration-thickness:.16em}a:focus-visible{outline:3px solid #ad4e1d;outline-offset:4px}p{margin:.6em 0 0;max-width:68ch}h1,h2,h3,p,li{overflow-wrap:anywhere}h1,h2{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.035em;margin:.15em 0 .35em}h2{font-size:clamp(1.95rem,5vw,3rem);margin:.1em 0 .42em}h3{font-size:1.05rem;line-height:1.35;margin:0}.wrap{width:min(calc(100% - 2.2rem),66rem);margin:auto}.mast{border-top:.38rem solid var(--signal);border-bottom:1px solid var(--rule)}.mast .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.7rem 0}.kicker,.label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:740}.mast nav{display:flex;gap:1rem;flex-wrap:wrap}.mast nav a{padding:.35rem .05rem;font-size:.92rem}.skip{position:absolute;left:.8rem;top:-100%;padding:.55rem;background:var(--white);z-index:4}.skip:focus{top:1rem}.hero{padding:clamp(2.6rem,6.5vw,5.8rem) 0 2.9rem;display:grid;gap:2rem;grid-template-columns:minmax(0,1.65fr) minmax(16.5rem,.9fr);align-items:center}.hero h1{font-size:clamp(2.45rem,5vw,4.1rem);max-width:100%}.hero .lead{font-size:clamp(1.06rem,2.1vw,1.27rem);color:var(--soft);line-height:1.52;max-width:53ch}.links{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem}.button{display:inline-flex;align-items:center;min-height:45px;padding:.6rem .9rem;border:1px solid var(--signal);font-weight:700;border-radius:.25rem;text-decoration:none}.button:hover{box-shadow:inset 0 -3px 0 #9dc7bb}.primary{color:var(--white);background:var(--signal)}.muted{color:var(--soft);font-size:.91rem}.theorem{background:var(--night);color:#f9fffb;padding:1.35rem;border-radius:.5rem;border:1px solid #184d43}.theorem .label{color:#bee2d3}.theorem p{color:#f4fcf7}.display{font-family:var(--serif);font-size:clamp(1.08rem,4vw,1.45rem);line-height:1.45;font-weight:700}.theorem .display{border-bottom:1px solid #577e70;padding-bottom:.8rem}.range{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.15rem 0;color:var(--soft)}.range strong{display:block;color:var(--ink);font-size:1.02rem}.section{padding:clamp(2.4rem,5vw,4.3rem) 0;border-bottom:1px solid var(--rule)}.section .label{color:var(--signal)}.path{list-style:none;margin:1.45rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.path li{position:relative;min-width:0;padding:1rem 1rem 1rem 3rem;border:1px solid var(--rule);border-radius:.3rem;background:#fffefd}.path .input{background:var(--pale)}.path .key{background:var(--rose);border-color:#cabcaa}.path .num{position:absolute;left:.9rem;top:1rem;font-size:.81rem;font-weight:770;color:var(--signal)}.path p{font-size:.94rem;color:var(--soft)}.tag{font-size:.75rem;text-transform:uppercase;font-weight:750;letter-spacing:.06em;display:block;margin-bottom:.3rem;color:var(--signal)}.path .branch,.path li:last-child{grid-column:1/-1}.branch-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.7rem 0}.branch-grid>div{background:#fffdf9;padding:.72rem;border:1px solid #cfbeaa;border-radius:.22rem;min-width:0}.branch-grid p{font-size:.88rem}.join{padding-top:.55rem;border-top:1px solid #b8ab98}.intuition{margin-top:1rem;padding:.9rem 1rem;border-left:3px solid var(--signal);background:var(--pale)}.repro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem}.card{border:1px solid var(--rule);border-radius:.3rem;padding:1rem;min-width:0}.card p{color:var(--soft)}.auditline{margin-top:1rem}.snippet{background:var(--night);color:var(--white);font-size:.86rem;padding:.78rem;border-radius:.3rem;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}.ref{padding-left:1.4rem;margin:1.1rem 0 0}.ref li+li{margin-top:.62rem}.origin{margin-top:1.35rem}.foot{padding:1.2rem 0 1.65rem;color:var(--soft);font-size:.9rem}.foot p{margin:0}
+@media(max-width:730px){.hero{grid-template-columns:1fr;gap:1.35rem}.hero h1{max-width:100%}.range{gap:.75rem}.mast .wrap{gap:.2rem}}
+@media(max-width:460px){.wrap{width:calc(100% - 1.6rem)}.hero{padding-top:2.1rem}.hero h1{font-size:clamp(2.23rem,10vw,3.4rem)}.path,.repro,.branch-grid{grid-template-columns:1fr}.range{grid-template-columns:1fr;gap:.55rem}.range strong{display:inline}.mast nav a{font-size:.85rem}.theorem{padding:1.05rem}.links{gap:.52rem}.button{padding:.55rem .75rem}}
+@media print{.mast nav,.skip,.links{display:none}.hero{padding:1rem 0}.section{padding:.85rem 0}.theorem,.snippet{background:#fff;color:#152121}.theorem p,.theorem .label{color:#152121}}
+.journey{list-style:none;padding:0;margin:1.15rem 0 .4rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.72rem}.journey li{min-width:0;background:#fffefd;border:1px solid var(--rule);border-radius:.3rem;padding:.85rem}.journey .inspiration{background:var(--pale);border-style:dashed}.journey p{color:var(--soft);font-size:.91rem}@media(max-width:730px){.journey{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header class="mast"><div class="wrap"><span class="kicker">Dependence theory · Manuscript</span><nav aria-label="On this page"><a href="#research-path">Research path</a><a href="#proof">Proof route</a><a href="#verification">Lean</a><a href="#references">References</a></nav></div></header>
+<main id="main" class="wrap">
+<section class="hero" aria-labelledby="title">
+  <div>
+    <span class="label">24 November 2026 · Anonymous manuscript</span>
+    <h1 id="title">Kendall distributions identify Archimedean copulas in every finite dimension</h1>
+    <p class="lead">For each fixed dimension <var>d</var> ≥ 2, the population distribution of <var>C</var>(<var>U</var>), where <var>U</var> has distribution function <var>C</var>, uniquely determines the Archimedean copula <var>C</var>.</p>
+    <div class="links"><a class="button primary" href="artifacts/kendall-identification.pdf">Read the paper · 5-page PDF</a><a class="button" href="artifacts/kendall-source-and-lean.zip">Reproduce the proof · ZIP</a></div>
+  </div>
+  <aside class="theorem" aria-labelledby="statement"><span class="label" id="statement">Main theorem · fixed d ≥ 2</span>
+    <p class="display">Law of C₁(U₁) = law of C₂(U₂)<br> ⇒ C₁ = C₂ on [0, 1]<sup>d</sup></p>
+    <p>Their generators satisfy ψ₂(<var>r</var>) = ψ₁(<var>cr</var>) for a constant <var>c</var> &gt; 0 and every <var>r</var> ≥ 0. This rescaling leaves the copula unchanged.</p>
+  </aside>
+</section>
+<div class="range" aria-label="Scope of the result"><div><strong>All finite dimensions</strong> d ≥ 2, with one proof</div><div><strong>Atoms are allowed</strong> No density assumption</div><div><strong>Population result</strong> Equal laws, not equal samples</div></div>
+<section class="section" id="research-path" aria-labelledby="research-title">
+ <span class="label">Research path · what suggested the proof</span>
+ <h2 id="research-title">From inverse reconstruction to the Kendall proof</h2>
+ <ol class="journey" role="list">
+  <li class="inspiration"><span class="tag">Inspiration · no logical dependence</span><h3>Recover hidden information from a transformed observation</h3><p>An inverse-reconstruction idea from an earlier exploration related to the Riemann hypothesis suggested a question: what can a smoothed observation still reveal about the object behind it? This was a way to choose the question, not a theorem used below.</p></li>
+  <li><span class="tag">Transfer and search</span><h3>Ask what the Kendall law preserves</h3><p>The 2011 conjecture asks whether the law of a scalar score determines the original copula. A low-dimensional result prompted a search for an argument that would extend to all dimensions. The breakthrough was to use the classical Williamson representation and compare the two reciprocal radial quantiles at the same probability rank.</p></li>
+  <li><span class="tag">New proof mechanism</span><h3>Make disagreement impossible</h3><p>The comparison gives a weighted difference identity and a positive weight bound whenever the two normalized values are separated. Together they force a constant ratio of quantiles. Dimension changes only the exponent of the kernel; the argument does not proceed by induction.</p></li>
+ </ol>
+ <p class="muted"><a href="#proof">See the logical proof dependencies below</a>.</p>
+</section>
+<section class="section" id="proof" aria-labelledby="proof-title">
+ <span class="label">Mathematical dependencies</span>
+ <h2 id="proof-title">From the observed law to the copula</h2>
+ <p>The proof uses the same comparison in every dimension. The dimension enters through the exponent <var>m</var> = <var>d</var> − 1. Discrete, singular and mixed radial laws, and generators with finite right endpoints, are included.</p>
+ <ol class="path" role="list">
+  <li class="input"><span class="num" aria-hidden="true">01</span><span class="tag">Classical input</span><h3>Represent the generator</h3><p>The Williamson representation writes ψ(<var>r</var>) as the expectation of (1 − <var>rT</var>)<sub>+</sub><sup>m</sup> for the reciprocal radius <var>T</var>. The score <var>C</var>(<var>U</var>) is ψ(1/<var>T</var>).</p></li>
+  <li><span class="num" aria-hidden="true">02</span><span class="tag">Proposition 2</span><h3>Read the law at every rank</h3><p>The lower Kendall quantile at rank <var>p</var> is the integral of (1 − <var>x</var>(<var>s</var>)/<var>x</var>(<var>p</var>))<sup>m</sup> over 0 &lt; <var>s</var> &lt; <var>p</var>, where <var>x</var> is the lower quantile of <var>T</var>. Ties contribute zero shortfall. Equal population Kendall laws therefore give equal profiles rank by rank.</p></li>
+  <li class="key branch"><span class="num" aria-hidden="true">03</span><span class="tag">Equations (4), (5), (8)</span><h3>Two facts force rigidity</h3><p>Compare <var>z</var> = <var>x</var>/(<var>x</var> + <var>y</var>) for the two reciprocal radial quantiles at the same rank. A difference of powers gives both facts below.</p>
+   <div class="branch-grid"><div><strong>Common-measure identity</strong><p>At every rank <var>p</var>, the weighted differences from <var>z</var>(<var>p</var>) integrate to zero against the same measure dμ(<var>s</var>) = (<var>x</var>(<var>s</var>) + <var>y</var>(<var>s</var>)) d<var>s</var>.</p></div><div><strong>Gap bound on weights</strong><p>Whenever two values of <var>z</var> are separated by a fixed positive gap, the corresponding weight has a positive lower bound.</p></div></div>
+   <p class="join"><strong>Lemma 4 + Theorem 3:</strong> Together these force <var>z</var> to be constant, so the two quantiles are proportional.</p></li>
+  <li><span class="num" aria-hidden="true">04</span><span class="tag">Theorem 1</span><h3>Recover the copula on the closed cube</h3><p>Proportional radial quantiles rescale the generators. The inverse formula cancels that scale in the open cube; continuity then gives equality on the whole closed cube.</p></li>
+ </ol>
+ <p class="intuition"><strong>Why the integral identity is decisive.</strong> At a rank near a running high, the identity forces almost all the earlier mass to lie near that high. At a later rank near a low, that same mass contributes a positive deviation that the rest cannot cancel. Applying the reasoning to both <var>z</var> and 1 − <var>z</var> rules out either direction of change.</p>
+</section>
+<section class="section" id="verification" aria-labelledby="verification-title">
+ <span class="label">Proof checking</span>
+ <h2 id="verification-title">What Lean covers</h2>
+ <div class="repro">
+  <div class="card"><h3>Checked implication</h3><p><code>KendallSample.identifies</code> starts with equality of the laws of the actual scores <var>C</var>₁(<var>U</var>₁) and <var>C</var>₂(<var>U</var>₂), and concludes pointwise copula equality on the closed cube. <code>KendallSample.population_law</code> proves the link from the law of the actual sample score to the radial score law.</p></div>
+  <div class="card"><h3>Inputs and exclusions</h3><p>The formalization takes the classical Williamson/radial representation and the associated sample and copula identities as inputs. It does not reprove that representation theorem or the statistical applications in §5.</p></div>
+ </div>
+ <p class="auditline">The supplied log records Lean 4.34.1, a clean build and kernel replay of 15 local modules, and axiom audits for 13 declarations. The ZIP contains the pinned manifest and the exact source and log.</p>
+ <pre class="snippet"><code>cd formal
+lake exe cache get
+lake env python3 verify.py --kernel</code></pre>
+</section>
+<section class="section" id="references" aria-labelledby="refs-title">
+ <span class="label">Context</span>
+ <h2 id="refs-title">The conjecture and its prerequisites</h2>
+ <p>The bivariate case was known. Genest, Nešlehová and Ziegel proved the trivariate and finitely supported cases and posed the general <var>d</var> ≥ 4 identification question as Conjecture 1. Kasper, Dietrich and Trutschnig restated it as injectivity on normalized Williamson measures. Theorem 1 of the manuscript proves that conjecture.</p>
+ <ol class="ref">
+  <li>Genest, Nešlehová and Ziegel (2011), <a href="https://doi.org/10.1007/s11749-011-0250-6">Inference in multivariate Archimedean copula models</a>, Conjecture 1.</li>
+  <li>Kasper, Dietrich and Trutschnig (2024), <a href="https://doi.org/10.1016/j.jmaa.2023.127555">On convergence and mass distributions of multivariate Archimedean copulas and their interplay with the Williamson transform</a>, Remark 5.7.</li>
+  <li>McNeil and Nešlehová (2009), <a href="https://doi.org/10.1214/07-AOS556">Multivariate Archimedean copulas, d-monotone functions and ℓ₁-norm symmetric distributions</a>, Theorem 3.1 and Proposition 4.5.</li>
+ </ol>
+ 
+ <p class="origin"><strong>Contributions.</strong> A human collaborator directed the research and proposed investigating whether the argument could extend to all dimensions. AI assistants developed the quantile-comparison proof, wrote the Lean formalization and drafted the manuscript. The accompanying verification log records Lean kernel checks, not peer review.</p>
+</section>
+</main>
+<footer class="foot"><div class="wrap"><p>Research manuscript and reproducibility materials. No claim of historical priority is made here.</p></div></footer>
+</body>
+</html>
